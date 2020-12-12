@@ -1,0 +1,83 @@
+form div.input-field input{
+    padding-left: 15px !important;
+    color: white;
+}
+
+input.ng-invalid.ng-dirty{
+    border-bottom-color : #e91e63 !important;
+    box-shadow: 0 1px 0 0 #e91e63 !important;
+}
+
+.input-field>label{
+    letter-spacing: 0.2pc;
+    font-size: 1.2rem;
+    font-weight: bold;
+    color: white;
+    /* text-transform: uppercase; */
+}
+
+.btn-custom {
+    background-color:  rgb(116, 10, 29);
+    color: rgb(202, 202, 202);
+    font-size: 1.1rem;
+    margin : 0px 5px;
+    border: rgb(31, 29, 29) solid 1px ;
+    text-transform:none;
+}
+
+.btn-custom:hover,.btn-custom:focus{
+    color: black;
+    background-color: thistle;
+    font-size: 1.1rem;
+    margin : 0px 5px;
+    border: rgb(31, 29, 29) solid 1px ;
+    text-transform:none;
+}
+/* //083045 */
+div.card{
+    background-image: url(/assets/images/topography.svg), linear-gradient(#781C31, #aa1e3f,#480F18);
+    border-radius: 10px;
+    width: 100%;
+}
+
+.vl {
+    border-left: 2px solid #4e2727;
+    height: 400px;
+}
+
+a.action-btn{
+    color: whitesmoke ;
+    margin: 0px 5px;
+
+}
+a.action-btn:hover{
+    cursor: pointer;
+}
+
+#toast-container {
+    
+    top: auto !important;
+    right: auto !important;
+    bottom: 10%;
+    left:7%;
+  }
+
+.responsive-table{
+    color: white;
+}
+h1{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: white;
+    letter-spacing: 10px;
+    padding-top: 10px;
+    animation: h1 4s linear infinite alternate;   
+}
+@keyframes h1 {
+    from {color: white;}
+    to {color: #7C1D33;}
+  }
+
+
+

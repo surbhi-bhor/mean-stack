@@ -1,0 +1,19 @@
+.navbar-brand{
+    background: linear-gradient(to right, white 10%, gray 50%, whitesmoke 60%);
+    background-size: 200% auto;
+    background-clip: border-box;
+    color: white;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+    animation: animate 1.5s linear infinite;
+    display: inline-block;
+    margin: 0;
+    font-size: 35px;
+    font-family: 'Times New Roman', Times, serif;
+    font-weight: 400;
+}
+@keyframes animate{
+    from{
+        background-position: 200% center;
+    }
+}

@@ -1,0 +1,109 @@
+
+
+form div.input-field input{
+    padding-left: 15px !important;
+    color: white;
+}
+
+input.ng-invalid.ng-dirty{
+    border-bottom-color : #e91e63 !important;
+    box-shadow: 0 1px 0 0 #e91e63 !important;
+}
+
+.input-field>label{
+    letter-spacing: 0.2pc;
+    font-size: 1.2rem;
+    font-weight: 400;
+    color: white;
+    text-transform: uppercase;
+}
+
+
+div.card{    
+    background-image: linear-gradient(to bottom, rgba(150,32,54, 0.5), rgba(72,15,24, 0.73)), url(src/assets/images/airplane.jpg);    
+    background-size: cover;   
+    border-radius: 10px;   
+    width: 100%;
+}
+
+.responsive-table{
+    background-image: linear-gradient(rgb(150,32,54, 0.9), rgb(72,15,24, 0.9));
+    border-radius: 10px;
+    color: white;
+    padding: 10px 10px 10px 10px;
+}
+
+.btn , .btn-lg , .btn-block{
+    color: white;
+    font-size: small;
+    background-color: rgba(139, 31, 47, 0.9);    
+} 
+.search{
+    background: rgba(139, 31, 47, 0.9);
+    border-radius: 10px;
+    padding: 8px 50px;
+    cursor: pointer;
+    width: 180px;
+    height: 46px;
+    left: 50%;
+    bottom: -97px;
+    margin-left: -90px;
+    margin-top: -23px;
+    position: absolute;    
+}
+
+.book:hover, .search:hover{
+    background-color: rgb(77, 16, 16);
+}
+
+.material-icons{
+    color: white;
+}
+
+.places {
+    background-color: rgb(77, 16, 16);
+    color: wheat;
+}
+a{
+    color: black;
+    text-decoration: none;
+}
+a:hover{
+    color: whitesmoke;
+}
+
+div.card.flights{
+    background-image: linear-gradient(rgba(114, 19, 19, 0.5), rgba(146, 26, 26, 0.5)) ,url(src/assets/images/airport.jpg);
+
+}
+strong, h2{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-transform: capitalize;
+    /* text-align: center;
+    padding-left: 130px; */
+    color: rgb(58, 5, 5);
+    font-size: x-large;
+    font-weight: 500;
+}
+div.card.faqs{
+    display: flex;
+    justify-content: center;
+    text-align: center;
+    background-image: linear-gradient(rgba(150,32,54, 1), rgba(72,15,24, 1));
+    
+}
+h1{
+    color: white;
+}
+mat-accordion{    
+    width: 95%;
+    padding-left: 45px;
+    position: relative;    
+}
+
+
+
+
+

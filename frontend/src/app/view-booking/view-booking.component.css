@@ -1,0 +1,39 @@
+.btn{
+    float: right;
+}
+
+div.card{
+    background-image: url(/assets/images/topography.svg), linear-gradient(#480F18, #781C31, #aa1e3f);
+    border-radius: 10px;
+    width: 100%;
+    color: ivory;
+}
+
+div.card-reveal{
+    background-color: #420D13;
+    color: white
+}
+
+.btn{   
+    background-color: rgba(139, 31, 47, 0.9);
+    color: white;       
+} 
+.btn:hover{
+    background-color: rgba(107, 32, 43, 0.9);
+}
+
+div.outer{
+    background-image: linear-gradient(#480F18, #781C31, #aa1e3f);
+}
+
+h2, h1{
+    justify-content: center;
+    text-align: center;
+}
+
+
+
+
+
+
+

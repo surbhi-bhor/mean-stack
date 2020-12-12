@@ -1,0 +1,88 @@
+
+    
+  
+<!-- NAV BAR -->
+<nav class="navbar navbar-expand-lg navbar-dark">  <!-- #24768f  #db991f -->  
+  <img src="assets/images/plane.png" width="30" height="30" class="d-inline-block align-top" alt="" loading="lazy"> <br>
+  <a class="navbar-brand" href="#">FLY HIGH</a>
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+<!-- --------------------------------------------------------------------------------------------------------------------------------------- -->
+  <div class="collapse navbar-collapse" id="navbarSupportedContent">
+    <ul class="navbar-nav mr-auto">
+      <!-- <li class="nav-item active">
+        <a class="nav-link" routerLink='/searchFlight' routerLinkActive= "active">Home</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="#">Link</a>
+      </li> -->
+    </ul>
+<!-- --------------------------------------------------------------------------------------------------------------------------------------- -->   
+    <ul class="navbar-nav">
+      <a class="nav-link" *ngIf="!_authService.loggedIn()" routerLink='/login' routerLinkActive= "active">Login</a>
+      <a class="nav-link" *ngIf="!_authService.loggedIn()" routerLink='/signup' routerLinkActive= "active">Sign up</a>
+      <a class="nav-link" *ngIf="_authService.loggedIn()" routerLink='/viewBooking' style="cursor: pointer;">Profile </a>
+      <a class="nav-link" *ngIf="_authService.loggedIn()" (click)= "_authService.logoutUser()" style="cursor: pointer;">Logout</a>      
+    </ul>
+  </div>
+</nav>
+<!-- --------------------------------------------------------------------------------------------------------------------------------------- -->
+
+<div class="container">
+  <router-outlet></router-outlet>
+</div>
+
+
+<!-- FOOTER -->
+
+   <!--
+  <div class="container">
+    <div class="row">
+      <div class="col l6 s12">
+        <h5 class="white-text">Connect with us</h5>
+        <ul>
+          <a href="https://www.facebook.com" class="fa fa-facebook"></a>
+          <a href="https://www.twitter.com" class="fa fa-twitter"></a>
+          <a href="https://www.instagram.com" class="fa fa-instagram"></a>
+        </ul>
+      </div>          
+      <div class="col l4 offset-l2 s12">
+        <h5 class="white-text">Contact us</h5>
+        <ul>          
+          <li><a class="grey-text text-lighten-3" href="#!">0124-643-4800</a></li>
+          <li><a class="grey-text text-lighten-3" href="mailto:flyhigh@gmail.com" target="blank">flyhigh@gmail.com</a></li>
+        </ul>
+      </div>
+      <div class="container">
+    © Fly High  
+    </div>
+    </div>
+  </div> -->
+<footer class="page-footer">
+  <div class="footer-copyright">
+    <div class="container">
+      <div class="row">
+        <div class="col l6 s12">
+          <h5 class="white-text">Connect with us</h5>
+          <ul>
+            <a href="https://www.facebook.com" class="fa fa-facebook"></a>
+            <a href="https://www.twitter.com" class="fa fa-twitter"></a>
+            <a href="https://www.instagram.com" class="fa fa-instagram"></a>
+          </ul>
+        </div>          
+        <div class="col l4 offset-l2 s12">
+          <h5 class="white-text">Contact us</h5>
+          <ul>          
+            <li><a class="grey-text text-lighten-3" href="#!">0124-643-4800</a></li>
+            <li><a class="grey-text text-lighten-3" href="mailto:flyhigh@gmail.com" target="blank">flyhigh@gmail.com</a></li>
+          </ul>
+        </div>
+        <div class="container copyright">
+      © Fly High  
+      </div>
+      </div>    
+    </div>
+  </div>
+</footer>
+

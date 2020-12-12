@@ -1,0 +1,120 @@
+var bookingId = 110;
+app.post("/booking/add/:flightName/:userId", (req, res)=>{
+  let flightName = req.params.flightName;
+
+  var newBooking = {
+    userId: mongoose.Types.ObjectId(req.params.userId),
+    flight:{
+      flightName: flightName,
+      airLine: '',
+      source: '',
+      destination: '',
+      fare: '',
+    },
+    bookingId: bookingId
+  }
+
+  axios.get("http://localhost:3000/flight/"+flightName).then((flight)=>{
+    const f = flight.data;
+    newBooking = {
+      userId: req.params.userId,
+      flight:{
+        flightName: flightName,
+        airLine: f.airLine,
+        source: f.source,
+        destination: f.destination,
+        fare: f.fare,
+      },
+      bookingId: bookingId
+    }
+    
+    var booking1 = new booking(newBooking);
+    booking1.save().then(() =>{
+    res.send("BookingId is :"+bookingId);
+    bookingId++;
+    //console.log(bookingId);
+      });
+    });
+});
+
+
+
+
+
+
+
+
+app.get('/booking/allbookings/:userId', (req, res) => {
+  var objectId = mongoose.Types.ObjectId(req.params.userId);
+  var myArr = [];
+  booking.find({userId:objectId}).then((response)=>{
+
+    for(let i of response){
+      let bookingObj = {
+        flight: i.flight,
+        bookingId: i.bookingId
+      }
+      myArr.push(bookingObj);
+    }
+    console.log(myArr);
+    res.send(myArr);
+  }).catch((err) => {
+    if(err){
+      throw err;
+    }
+  });
+});
+
+
+
+
+mongoose.model('booking',{
+  userId : {
+    type: mongoose.SchemaTypes.ObjectId,
+    required : true
+  },
+  flight : {
+    flightName:{
+      type:String,
+      required: true
+    },
+    airLine : {
+      type: String,
+      required: true
+    },
+    source : {
+      type: String,
+      required: true
+    },
+    destination : {
+      type: String,
+      required: true
+    },
+    fare : {
+      type: Number,
+      require: true
+    }
+  },
+  bookingId: {
+    type: Number,
+    required: true
+  }
+  // userDetails : {
+  //   firstName: {
+  //     type: String,
+  //     required: true
+  //   },
+  //   lastName: {
+  //     type:String,
+  //     required: true
+  //   },
+  //   dateOfBirth: {
+  //     type: String,
+  //     required: true
+  //   },
+  //   emailId: {
+  //     type: String,
+  //     required: true
+  //   }
+  // }
+});

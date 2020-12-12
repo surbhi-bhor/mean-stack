@@ -1,0 +1,41 @@
+<div class="row ">
+    <div class="col s12">
+      <div class="card ">            
+            <div class="box" id= "printJS-form">
+                <div class="ticket" >
+                <span class="airline">Fly High</span>
+                <span class="airline airlineslip">Fly High</span>
+                <span class="boarding">Boarding pass</span>
+                <div class="content">
+                    <table>
+                        <tr>
+                            <td>{{this.viewService.ticket.flight.source}}</td>
+                            <i class="medium material-icons" style="color: #821D2C;" >flight_takeoff</i>
+                            <td>{{this.viewService.ticket.flight.destination}}</td>
+                            <td><img src="assets/images/SG.png" height="15px" width="15px">{{this.viewService.ticket.flight.airline}}</td>
+                        </tr>              
+                    </table>            
+                    
+                    
+                    <div class="sub-content">
+                        <span class="watermark">Fly High</span>
+                        <span class="name">PASSENGER NAME: <br><span class="data">{{this.viewService.ticket.user.name}} </span></span>
+                        <span class="flight">FLIGHT CODE<br><span class="data">{{this.viewService.ticket.flight.flightCode}} </span></span>
+                        <span class="gate">GATE<br><span class="data">7B</span></span>
+                        <span class="seat">SEAT NO<br><span class="data">A-{{this.viewService.ticket.seatNo}} </span></span>
+                        <span class="boardingtime">BOARDING TIME<br><span class="data">13:20 </span></span>
+                            
+                        <span class="flight flightslip">FLIGHT CODE;<br><span class="data">{{this.viewService.ticket.flight.flightCode}}</span></span>
+                            <span class="seat seatslip">SEAT NO<br><span class="data">A-{{this.viewService.ticket.seatNo}}</span></span>
+                        <span class="name nameslip">PASSENGER NAME<br><span class="data">{{this.viewService.ticket.user.name}}</span></span>
+                    </div>
+                </div>
+                <div class="barcode"></div>
+                <div class="barcode slip"></div>
+                </div>
+                
+            </div><button class="btn book waves-effect waves-light"  type="button" (click)= 'print()' >Print</button> 
+            <br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>                       
+      </div>
+    </div>
+</div> 

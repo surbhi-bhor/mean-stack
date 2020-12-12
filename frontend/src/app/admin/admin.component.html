@@ -1,0 +1,243 @@
+<h1>ADMIN DASHBOARD</h1>
+<div class="card tab">
+  <mat-tab-group mat-align-tabs="center">
+    <mat-tab label="FLIGHTS">
+      <div class="row">
+        <div class="col s12">
+          <div class="card">
+            <div class="card-content black-text">
+              <div class="row">
+                <div class="col s5">
+                  <form #flightForm="ngForm" (ngSubmit)="onSubmit(flightForm)">
+                    <input type="hidden" name="_id" #_id="ngModel" [(ngModel)]="flightDataService.selectedFlight._id">
+                    <!-- --------------------------------------------------------------------------------------------------------------------------------------- -->
+                    <div class="row">
+                      <div class="input-field col s12">
+                        <input type="text" name="flightCode" #name="ngModel" [(ngModel)]="flightDataService.selectedFlight.flightCode"  required>
+                        <label>Flight Code :
+                          <label class="red-text">*</label>
+                        </label>
+                      </div>
+                    </div>
+                    <!-- --------------------------------------------------------------------------------------------------------------------------------------- -->
+                    <div class="row">
+                      <div class="input-field col s12">
+                        <input type="text" name="airline" #name="ngModel" [(ngModel)]="flightDataService.selectedFlight.airline" >
+                        <label>Airline :
+                        <label class="red-text">*</label>
+                        </label>
+                      </div>
+                    </div>
+                    <!-- --------------------------------------------------------------------------------------------------------------------------------------- -->
+                    <div class="row">
+                      <div class="input-field col s12">
+                        <input type="text" name="source" #name="ngModel" [(ngModel)]="flightDataService.selectedFlight.source" >
+                        <label>Source :
+                        <label class="red-text">*</label>
+                      </label>
+                      </div>
+                    </div>
+                    <!-- --------------------------------------------------------------------------------------------------------------------------------------- -->
+                    <div class="row">
+                      <div class="input-field col s12">
+                        <input type="text" name="destination" #name="ngModel" [(ngModel)]="flightDataService.selectedFlight.destination" >
+                        <label>Destination :
+                        <label class="red-text">*</label>
+                      </label>  
+                      </div>
+                    </div>
+                    <!-- --------------------------------------------------------------------------------------------------------------------------------------- -->
+                    <div class="row">
+                        <div class="input-field col s12">
+                          <input type="number" name="fare" #name="ngModel" [(ngModel)]="flightDataService.selectedFlight.fare" >
+                          <label>Fare :
+                          <label class="red-text">*</label>
+                          </label>
+                        </div>
+                      </div>
+                      <!-- --------------------------------------------------------------------------------------------------------------------------------------- -->
+                    <div class="row">
+                      <div class="input-field col s12">
+                        <button class="btn btn-custom right" type="button" (click)="resetForm(flightForm)">Reset</button>
+                        <button class="btn btn-custom right" type="submit" [disabled]="!flightForm.valid">Submit</button>
+                      </div>
+                    </div>
+                  </form>
+                </div>
+                <div class="col s12"> 
+                  <table class="responsive-table highlight">
+                        <thead>
+                          <tr>
+                            <th>Flight code</th>
+                            <th>Airline</th>
+                            <th>Source</th>
+                            <th>Destination</th>
+                            <th>Fare</th>
+                            <th></th>
+                          </tr>
+                        </thead>
+                        
+                        <tr *ngFor="let fly of flightDataService.flights">
+                          <td>{{fly.flightCode}}</td>
+                          <td>{{fly.airline}}</td>
+                          <td>{{fly.source}}</td>
+                          <td>{{fly.destination}}</td>
+                          <td>{{fly.fare  | currency:'INR':'symbol'}}</td>
+                          <td>
+                              <a class="action-btn" (click)="onEdit(fly)">
+                                <i class="material-icons">edit</i>
+                              </a>
+                              <a class="action-btn" (click)="onDelete(fly.flightCode,flightForm)">
+                                <i class="material-icons">delete</i>
+                              </a>
+                            </td>
+                        </tr>                                      
+                      </table>                 
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      
+      </div>
+    </mat-tab>
+    <mat-tab label="BOOKINGS"> <br><br>
+      <table class="responsive-table highlight">
+        <thead>
+          <tr>
+            <th>User ID</th>
+            <th>Booking ID</th>
+            <th>Passenger Name</th>
+            <th>Passenger Age</th>
+            <th>Flight code</th>
+            <th>Airline</th>
+            <th>Source</th>
+            <th>Destination</th>
+            <th>Fare</th>
+            <th></th>
+          </tr>
+        </thead>
+        <tr *ngFor="let fly of flightDataService.bookedFlights">
+          <td>{{fly.UserID}} </td>
+          <td>{{fly.BookingID}} </td>
+          <td>{{fly.user.name}} </td>
+          <td>{{fly.user.age}} </td>
+          <td>{{fly.flight.flightCode}}</td>
+          <td>{{fly.flight.airline}}</td>
+          <td>{{fly.flight.source}}</td>
+          <td>{{fly.flight.destination}}</td>
+          <td>{{fly.flight.fare  | currency:'INR':'symbol'}}</td>        
+        </tr>
+      </table> <br><br><br>
+    </mat-tab> 
+  </mat-tab-group>
+</div><br><br><br><br>
+
+
+
+
+
+
+
+
+
+
+
+
+ <!-- <div class="row">
+    <div class="col s12">
+      <div class="card">
+        <div class="card-content black-text">
+          <div class="row">
+            <div class="col s5">
+              <form #flightForm="ngForm" (ngSubmit)="onSubmit(flightForm)">
+                <input type="hidden" name="_id" #_id="ngModel" [(ngModel)]="flightDataService.selectedFlight._id">
+                
+                <div class="row">
+                  <div class="input-field col s12">
+                    <input type="text" name="flightCode" #name="ngModel" [(ngModel)]="flightDataService.selectedFlight.flightCode"  required>
+                    <label>Flight Code :
+                      <label class="red-text">*</label>
+                    </label>
+                  </div>
+                </div>
+                
+                <div class="row">
+                  <div class="input-field col s12">
+                    <input type="text" name="airline" #name="ngModel" [(ngModel)]="flightDataService.selectedFlight.airline" >
+                    <label>Airline :
+                    <label class="red-text">*</label>
+                    </label>
+                  </div>
+                </div>
+               
+                <div class="row">
+                  <div class="input-field col s12">
+                    <input type="text" name="source" #name="ngModel" [(ngModel)]="flightDataService.selectedFlight.source" >
+                    <label>Source :
+                    <label class="red-text">*</label>
+                  </label>
+                  </div>
+                </div>
+               
+                <div class="row">
+                  <div class="input-field col s12">
+                    <input type="text" name="destination" #name="ngModel" [(ngModel)]="flightDataService.selectedFlight.destination" >
+                    <label>Destination :
+                    <label class="red-text">*</label>
+                  </label>  
+                  </div>
+                </div>
+                
+                <div class="row">
+                    <div class="input-field col s12">
+                      <input type="number" name="fare" #name="ngModel" [(ngModel)]="flightDataService.selectedFlight.fare" >
+                      <label>Fare :
+                      <label class="red-text">*</label>
+                      </label>
+                    </div>
+                  </div>
+                  
+                <div class="row">
+                  <div class="input-field col s12">
+                    <button class="btn btn-custom right" type="button" (click)="resetForm(flightForm)">Reset</button>
+                    <button class="btn btn-custom right" type="submit" [disabled]="!flightForm.valid">Submit</button>
+                  </div>
+                </div>
+              </form>
+            </div>
+            <div class="col s12">
+                <table class="responsive-table highlight">
+                    <thead>
+                      <tr>
+                        <th>Flight code</th>
+                        <th>Airline</th>
+                        <th>Source</th>
+                        <th>Destination</th>
+                        <th>Fare</th>
+                        <th></th>
+                      </tr>
+                    </thead>
+                    <tr *ngFor="let fly of flightDataService.flights">
+                      <td>{{fly.flightCode}}</td>
+                      <td>{{fly.airline}}</td>
+                      <td>{{fly.source}}</td>
+                      <td>{{fly.destination}}</td>
+                      <td>{{fly.fare  | currency:'INR':'symbol'}}</td>
+                      <td>
+                          <a class="action-btn" (click)="onEdit(fly)">
+                            <i class="material-icons">edit</i>
+                          </a>
+                          <a class="action-btn" (click)="onDelete(fly.flightCode,flightForm)">
+                            <i class="material-icons">delete</i>
+                          </a>
+                        </td>
+                    </tr>
+                  </table>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  
+  </div>  -->

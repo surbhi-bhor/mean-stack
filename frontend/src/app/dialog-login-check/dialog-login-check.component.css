@@ -1,0 +1,11 @@
+button {
+    margin-left: 30px ;
+    background-color: rgb(77, 16, 16);
+    color: white;
+    font-size: medium;
+}
+button:hover{
+    color: white;
+    background-color: rgb(134, 127, 127);
+}
+

@@ -1,0 +1,19 @@
+
+    "flight": {
+        "airline": "Spicejet",
+        "source": "mumbai",
+        "destination": "delhi"
+
+    },
+    "user": {
+        "name": "Rohit",
+        "age": 22
+
+    },
+
+
+
+{
+    "userID": "5fc25cbb5e645b3a689afce4",
+    "flightID": "5fc4c704bd9af13810389ad1"
+}

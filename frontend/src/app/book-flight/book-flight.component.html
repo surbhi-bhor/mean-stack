@@ -1,0 +1,126 @@
+
+<div class="row ">
+    <div class="col s12">
+      <div class="card ">
+        <div class="card-content black-text">
+          
+<mat-horizontal-stepper>
+    <!-- --------------------------------------------STEP 1----------------------------------------------- -->
+    <mat-step  class="label" label="Flight details" editable="false">
+        <h4>Flight Details</h4> <br><br>
+       
+        <table class="responsive-table highlight">
+            <thead>
+                <tr>
+                    <th>Flight code</th>                      
+                    <th>Airline</th>
+                    <th>Source</th>
+                    <th></th>
+                    <th>Destination</th>
+                    <th>Fare</th>
+                    <th></th>
+                  </tr>
+                </thead>               
+                <tr class="myFlight" *ngFor= "let fly of bookService.flightDetails">
+                    <td><img src="assets/images/SG.png" height="15px" width="15px">{{fly.airline}}</td>
+                    <td>{{fly.flightCode}}</td>                    
+                    <td>{{fly.source}}</td>
+                    <td><i class="material-icons">flight</i> </td>
+                    <td>{{fly.destination}}</td>
+                    <td>{{fly.fare | currency:'INR':'symbol'}}</td>
+                </tr> 
+        </table> <br> <br>
+        <br> <br> <br> <br> <br>  
+        <button class="btn book waves-effect waves-light" type="button" matStepperNext>Confirm
+            <i class="material-icons right">send</i>
+        </button> <br>    
+    </mat-step>
+    <!-- --------------------------------------------STEP 2----------------------------------------------- -->
+    <mat-step label="User details"  editable="false">
+        <h4>Contact Details</h4>
+        <div class="row">
+            <form class="col s12" #userForm="ngForm" novalidate >
+              <div class="row">
+                <div class="input-field col s6">
+                  <i class="material-icons prefix">email</i>
+                  <input id="email" type="email" name="email" #email="ngModel"  [(ngModel)]="user.email" class="validate">
+                  <label for="email">Email</label>
+                  <small class="text-danger" [class.d-none]="email.valid || email.untouched">Email is required</small>
+                </div>
+                <div class="input-field col s6">
+                  <i class="material-icons prefix">phone</i>
+                  <input id="phoneNo" type="tel" name="phoneNo" #phoneNo="ngModel"  [(ngModel)]="user.phoneNo" class="validate">
+                  <label for="phoneNo">Phone Number</label>
+                  <small class="text-danger" [class.d-none]="phoneNo.valid || phoneNo.untouched">Phone Number is required</small>
+                </div>
+              </div>
+            </form>
+          </div>
+
+          <h4>Traveller Details</h4>
+        <div class="row">
+            <form class="col s12"    #passengerForm= "ngForm">
+              <div class="row">
+                <div class="input-field col s6">
+                  <i class="material-icons prefix">account_circle</i>
+                  <input id="name" type="text" name="name" #name="ngModel"  [(ngModel)]="user.name" class="validate">
+                  <label for="name">Name</label>
+                  <small class="text-danger" [class.d-none]="name.valid || name.untouched">Name is required</small>
+                </div>
+                <div class="input-field col s6">
+                  <i class="material-icons prefix">face</i>
+                  <input id="age" type="number" name="age" #age="ngModel"  [(ngModel)]="user.age"  class="validate">
+                  <label for="age">Age</label>
+                  <small class="text-danger" [class.d-none]="age.valid || age.untouched">Age is required</small>
+                </div>                
+              </div>
+            </form>
+        </div>   
+        <div class="row">
+            <div class="input-field col s12">                
+                <button class="btn book waves-effect waves-light "  type="button" matStepperNext>Book
+                    <i class="material-icons right">send</i>
+                </button>
+            </div>
+        </div>    
+    </mat-step>
+    <!-- --------------------------------------------STEP 3----------------------------------------------- -->
+    <mat-step class="payment" label="Payment"> 
+      
+        <div class="card summary">
+         <br><br> <h3>Thank you for booking your travel with us. Have a safe & happy flight!</h3> <br><br>
+          <table class="highlight">            
+            <tr>
+              <td>NAME : {{user.name}}</td>
+              <td>AGE : {{user.age}}</td>
+            </tr>
+          </table> <br><br><br>
+          <table class="highlight">
+            <tr class="myFlight" *ngFor= "let fly of bookService.flightDetails">
+              <td><img src="assets/images/SG.png" height="15px" width="15px">{{fly.airline}}</td>
+              <td>{{fly.flightCode}}</td>                    
+              <td>{{fly.source}}</td>
+              <td><i class="material-icons">flight</i> </td>
+              <td>{{fly.destination}}</td>
+              <td>{{fly.fare | currency:'INR':'symbol'}}</td>
+          </tr> 
+          </table> <br><br><br>
+        </div>
+     
+     <button class="btn book pulse  waves-effect waves-light" type="button" (click)="payWithRazor()" >Pay Now
+            <i class="material-icons right">send</i>
+      </button>   <br><br>           
+    </mat-step>
+</mat-horizontal-stepper> 
+<div>
+  
+</div>
+         
+        </div>
+      </div> 
+    </div>
+</div>
+
+
+
+

@@ -1,0 +1,58 @@
+<div class="py-5" >
+    <div class="row">
+      <div class="col-md-6 mx-auto">
+        <span class="anchor" id="formLogin"></span>  
+        <div class="card rounded-0">
+          <div class="card-header" >
+            <h3 class="mb-0">Register</h3>
+          </div>
+         <!-- --------------------------------------------------------------------------------------------------------------------------------------- -->
+          <div class="card-body">
+            <form class="form" #userForm="ngForm" *ngIf='!submitted'  novalidate >
+                <div class="form-group">
+                <label for="uname1">Name</label>
+                <input type="text" #name="ngModel" [class.is-invalid]="name.invalid && name.touched" [(ngModel)]="registerUserData.name" name="name" class="form-control rounded-0" required>
+                <small class="text-danger" [class.d-none]="name.valid || name.untouched">Name is required</small>
+              </div>
+         <!-- --------------------------------------------------------------------------------------------------------------------------------------- -->              
+
+              <div class="form-group">
+                <label for="uname1">Age</label>
+                <input type="number" #age="ngModel" [class.is-invalid]="age.invalid && age.touched" [(ngModel)]="registerUserData.age" name="age" class="form-control rounded-0" ng-pattern="/^(?:1[8-9]|[2-5][0-9])$/" required>
+                <small class="text-danger" [class.d-none]="age.valid || age.untouched" >Age is required!</small>
+                
+              </div>
+         <!-- --------------------------------------------------------------------------------------------------------------------------------------- -->
+              <div class="form-group">
+                <label for="gender">Gender</label> <br>
+                <label>
+                  <input class="with-gap" name="gender" type="radio" [(ngModel)]="registerUserData.gender"  value="male" required #gender="ngModel"  />
+                  <span>Male</span>
+                </label>
+                <label>
+                  <input class="with-gap" name="gender" type="radio" [(ngModel)]="registerUserData.gender"  value="female" required #gender="ngModel"  />
+                  <span>Female</span>
+                </label>
+             </div>
+         <!-- --------------------------------------------------------------------------------------------------------------------------------------- -->  
+
+              <div class="form-group">
+                <label for="uname1">Email</label>
+                <input type="text" #email="ngModel" [class.is-invalid]="email.invalid && email.touched" [(ngModel)]="registerUserData.email" name="email" class="form-control rounded-0" required>
+                <small class="text-danger" [class.d-none]="email.valid || email.untouched">Email is required</small>
+                <small class="danger" *ngIf = "isSignupError" >{{errorMsg1}} </small>
+              </div>
+         <!-- --------------------------------------------------------------------------------------------------------------------------------------- -->
+              <div class="form-group">
+                <label>Password</label>
+                <input type="password" #password="ngModel" [class.is-invalid]="password.invalid && password.touched" [(ngModel)]="registerUserData.password" name="password" class="form-control rounded-0"  required>
+                <small class="text-danger" [class.d-none]="password.valid || password.untouched">Password is required</small>
+              </div>
+         <!-- --------------------------------------------------------------------------------------------------------------------------------------- -->
+              <button type="button" [disabled]="userForm.form.invalid" (click)="registerUser()" class="btn float-right">Register</button>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>

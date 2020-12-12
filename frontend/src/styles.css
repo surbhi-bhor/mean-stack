@@ -1,0 +1,39 @@
+/* You can add global styles to this file, and also import other style files */
+
+html, body {     
+    background: url(assets/images/home-bg.jpg) repeat center top;     
+    background-size: cover;      
+}
+.navbar{
+    background-color: #420D13;
+}
+body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+
+.navbar-dark .navbar-nav .nav-link {
+    color: white;
+}
+
+ .page-footer{
+    background-color: #841E34;
+    position: relative;
+}
+
+.fa {
+    color: white;
+    font-size: 20px;
+    width: 30px;
+    text-decoration: none;
+  }
+
+.copyright{
+    text-align: center;
+}
+body {
+    display: flex;
+    min-height: 100vh;
+    flex-direction: column;
+  }
+
+  main {
+    flex: 1 0 auto;
+  }

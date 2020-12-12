@@ -1,0 +1,33 @@
+
+
+label {
+    font-size: 15px;
+    color: white;
+}
+
+.card-header{
+    background-image: linear-gradient(rgb(150,32,54, 0.9), rgb(72,15,24, 0.9));
+    color: white;
+    text-transform: uppercase;
+    text-align: center;
+}
+.card-body{
+    background-image: linear-gradient(rgb(150,32,54), rgb(72,15,24));
+}
+
+.danger{
+    color: rgb(209, 40, 40);
+    font-size: medium;
+}
+input{
+    color: white;
+}
+.btn {
+    background-color: rgb(116, 10, 29);
+    color: white;
+    float: center;
+
+}
+.btn:hover{
+    background-color: rgb(70, 17, 27);
+}

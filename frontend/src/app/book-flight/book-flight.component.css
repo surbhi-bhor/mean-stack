@@ -1,0 +1,29 @@
+mat-horizontal-stepper, 
+.card  {
+    background-image: linear-gradient(rgb(150,32,54, 0.9), rgb(72,15,24, 0.9));
+    color: whitesmoke;
+}
+.mat-step,label{
+    color: whitesmoke;
+}
+.book{   
+    background-color: rgba(139, 31, 47, 0.9);
+    color: white;    
+    left: 45%;    
+    position: absolute;      
+} 
+.book:hover{
+    background-color: rgba(107, 32, 43, 0.9);
+}
+.summary{
+    background-image:linear-gradient(rgb(150,32,54, 0.5), rgb(72,15,24, 0.5)), url(/assets/images/pass.jfif);
+    background-size: cover;
+}
+
+h3{
+    text-transform: uppercase;
+    font-style: oblique;
+    padding-left: 200px;
+    font-size: large;
+}
+

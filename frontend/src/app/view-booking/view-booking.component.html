@@ -1,0 +1,148 @@
+
+<div class="card outer">
+    <br>  
+    <br>
+    <h2><em>"Say yes to new adventures"</em></h2>     
+   <div class="col s1"> <br> 
+            <div class="card" *ngFor= "let fly of this.viewService.bookedFlights">                          
+                    <div class="card-content">
+                    <span class="card-title activator white-text text-darken-4">Bookings<i class="material-icons right">more_vert</i></span>
+                        <table>
+                            <tr>
+                                <td>Booking ID: {{fly.BookingID}} </td>
+                                <td><img src="assets/images/SG.png" height="15px" width="15px">{{fly.flight.airline}}</td>
+                                <td>{{fly.flight.flightCode}}</td>                    
+                                <td>{{fly.flight.source}}</td>
+                                <td><i class="material-icons">flight</i> </td>
+                                <td>{{fly.flight.destination}}</td>
+                                <td>{{fly.flight.fare | currency:'INR':'symbol'}}</td>                            
+                            </tr>
+                        </table>
+                    </div>
+
+                    
+                    <div class="card-reveal" >            
+                        <span class="card-title white-text text-darken-4" >Passenger Details<i class="material-icons right">close</i ></span>                 
+                        <table>
+                            <tr>
+                                <td>NAME: {{fly.user.name}}</td>
+                                <td>AGE {{fly.user.age}}</td>         
+                                <td><button class="btn book waves-effect waves-light"  type="button" (click)='this.viewService.checkIn(fly)' >Check in</button></td>           
+                                <td><button class="btn book waves-effect waves-light"  type="button" (click)="onDelete(fly.BookingID)">Cancel</button></td>                    
+                            </tr>
+                        </table>       
+                    </div>
+            </div>    
+   </div> <br><br><br>
+</div>
+
+
+<!-- <table>
+    <tr  *ngFor="let obj of this.viewService.registeredUser.Object">
+        <td>{{ obj.name}}</td>
+
+    </tr>
+</table> -->
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<!-- <div class="card outer">
+    <br><br>
+        
+   <div class="col s1"> <br> 
+            <div class="card" id="printJS-form"   *ngFor= "let fly of this.viewService.bookedFlights">                          
+                    <div class="card-content">
+                    <span class="card-title activator white-text text-darken-4">Bookings<i class="material-icons right">more_vert</i></span>
+                        <table>
+                            <tr>
+                                <td>Seat Number: {{fly.seatNo}} </td>
+                                <td>Booking ID: {{fly.BookingID}} </td>
+                                <td><img src="assets/images/SG.png" height="15px" width="15px">{{fly.flight.airline}}</td>
+                                <td>{{fly.flight.flightCode}}</td>                    
+                                <td>{{fly.flight.source}}</td>
+                                <td><i class="material-icons">flight</i> </td>
+                                <td>{{fly.flight.destination}}</td>
+                                <td>{{fly.flight.fare | currency:'INR':'symbol'}}</td>
+                                <td>NAME: {{fly.user.name}}</td>
+                                <td>AGE {{fly.user.age}}</td> 
+                                
+                            </tr>
+                        </table>
+                    </div>
+
+            </div>    
+   </div> <br><br><br>
+</div>  -->
+ 
+
+
+
+
+
+
+    
+       
+ 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<!-- <table class="responsive-table highlight">
+    <thead>
+        <tr>
+            <th>Booking ID</th>
+            <th>Flight code</th>                      
+            <th>Airline</th>
+            <th>Source</th>
+            <th></th>
+            <th>Destination</th>
+            <th>Fare</th>
+            <th>Name</th>
+            <th>Age</th>
+            
+            <th></th>
+          </tr>
+        </thead>               
+        <tr class="myFlight" *ngFor= "let fly of this.viewService.bookedFlights">
+            <td>{{fly.BookingID}} </td>
+            <td><img src="assets/images/SG.png" height="15px" width="15px">{{fly.flight.airline}}</td>
+            <td>{{fly.flight.flightCode}}</td>                    
+            <td>{{fly.flight.source}}</td>
+            <td><i class="material-icons">flight</i> </td>
+            <td>{{fly.flight.destination}}</td>
+            <td>{{fly.flight.fare | currency:'INR':'symbol'}}</td>
+            <td>{{fly.user.name}}</td>
+            <td>{{fly.user.age}}</td>
+        </tr> 
+</table> <br> <br> -->

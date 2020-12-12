@@ -1,0 +1,290 @@
+<!-- SEARCH BOX -->
+<div class="row ">
+  <div class="col s12">
+    <div class="card ">
+      <div class="card-content black-text">
+        <div class="row">
+          <div class="col s5">
+            <form #flightForm="ngForm" (ngSubmit)="onSubmit(flightForm.value.source,flightForm.value.destination)">
+              <input type="hidden" name="_id" #_id="ngModel" [(ngModel)]="searchService.searchedFlight._id">
+              <!-- --------------------------------------------------------------------------------------------------------------------------------------- -->
+              <div class="row">
+                <i class="material-icons">add_location</i>                
+                <div class="input-field col s12">                  
+                  <input type="text" [(ngModel)]= "src" name="source" #source="ngModel" #source  [(ngModel)]="searchService.searchedFlight.source">
+                  <label>Source :
+                  <label class="red-text">*</label>
+                </label>
+                </div>
+                <!-- --------------------------------------------------------------------------------------------------------------------------------------- -->
+                <div class="row">                  
+                  <div class="input-field col s12">
+                  <img src="assets/images/swap-horizontal-mobile.svg" alt="" (click)="onSwap(src,dest)" >
+                  </div>
+                </div>
+                <!-- --------------------------------------------------------------------------------------------------------------------------------------- -->
+                <i class="material-icons">add_location</i> 
+                <div class="input-field col s12">                   
+                  <input type="text" [(ngModel)]= "dest" name="destination" #destination="ngModel"  [(ngModel)]="searchService.searchedFlight.destination">
+                  <label>Destination :
+                  <label class="red-text">*</label>
+                </label>  
+                </div>
+             </div>
+             <!-- --------------------------------------------------------------------------------------------------------------------------------------- -->
+             <div class="row">
+              <i class="material-icons">event_available</i> 
+              <div class="input-field col s12">
+                <label>Departure : </label>
+                <input type="text" class="datepicker" >
+                <!-- <input type="text" class="datepicker">                -->
+              </div>
+            </div>
+            <!-- --------------------------------------------------------------------------------------------------------------------------------------- -->   
+             <div class="row">
+              <div class="input-field col s12"> 
+                 <button type="submit" class="btn waves-effect  waves-light  search btn-danger btn-lg " >SEARCH</button>                
+              </div>          
+             </div>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<!-- ------------------------------------------------------------------------------------------------------------------------------------------------------------------- -->
+<!--  CARD CONTAINERS -->
+<div class="row">  
+  <div class="col s6">
+    <div class="card">
+      <div class="card-image">
+        <img src="assets/images/kerala.jpg">
+        <span class="card-title">Kerala</span>
+      </div>
+      <div class="card-content places">
+          <p>Kerala has one of the best: “God's Own Country,” they call it, an assertion of divine provenance that's loudly proclaimed on countless signposts and bumper stickers across the state.</p>
+      </div>
+      <div class="card-action">
+        <a style="color: rgb(77, 16, 16);" href="https://www.ekeralatourism.net/blog/places-to-visit-in-kerala/" target="blank">Places to visit in Kerala</a>
+      </div>
+    </div>
+  </div>
+  <div class="col s6">
+    <div class="card ">
+      <div class="card-image">
+        <img src="assets/images/hp.jpg">
+        <span class="card-title">Himachal Pradesh</span>
+      </div>
+      <div class="card-content places">
+          <p>Himachal Pradesh lies in the foothills of the Himalayan mountain range, and you can see the snow-capped mountains amidst the lush greenery.</p>
+      </div>
+      <div class="card-action">
+        <a style="color: rgb(77, 16, 16);" href="https://blog.thomascook.in/places-to-visit-in-himachal-pradesh/" target="blank">Places to visit in Himachal Pradesh</a>
+      </div>
+    </div>
+  </div>
+  
+  <div class="col s6">
+    <div class="card">
+      <div class="card-image">
+        <img src="assets/images/goa.jpg">
+        <span class="card-title">Goa</span>
+      </div>
+      <div class="card-content places">
+        <p>Goa, also known as the 'Pearl of the Orient', is located on the western coast of India in the coastal belt known as Konkan. By day its sun, sea and surf and by night its fun, fish and feni.</p>
+      </div>
+      <div class="card-action">
+        <a style="color: rgb(77, 16, 16);" href="https://www.thrillophilia.com/10-best-places-to-visit-in-goa" target="blank">Places to visit in Goa</a>
+      </div>
+    </div>
+  </div>
+</div>
+<!-- ------------------------------------------------------------------------------------------------------------------------------------------------------------------------ -->
+<!-- DISPLAY OF ALL THE FLIGHTS -->
+<div class="row">
+  <div class="col s12">
+    <div class="card flights"  >
+      <div class="card-content black-text">
+        <div class="row">
+          <div class="col s12">
+            <strong>"Once a year, go some place you've never been before." Book flights here at reasonable rate</strong> <br> <br>         
+
+              <table class="responsive-table highlight"  >
+                  <thead>
+                    <tr>
+                      <th>Flight code</th>                      
+                      <th>Airline</th>
+                      <th>Source</th>
+                      <th></th>
+                      <th>Destination</th>
+                      <th>Fare</th>
+                      <th></th>
+                    </tr>
+                  </thead>
+                  <tr *ngFor="let fly of searchService.requiredFlights">
+                    
+                    <td><img src="assets/images/SG.png" height="15px" width="15px"  > {{fly.airline}}</td>
+                    <td>{{fly.flightCode}}</td>                    
+                    <td>{{fly.source}}</td>
+                    <td><i class="material-icons">flight</i> </td>
+                    <td>{{fly.destination}}</td>
+                    <td>{{fly.fare | currency:'INR':'symbol'}}</td>
+                    <td>
+                      <button type="button" class="btn waves-effect waves-light book btn-lg btn-block" (click)="bookFlight(fly)" >BOOK</button>                        
+                      </td>
+                  </tr>
+                </table>
+                <!-- Error if no flights available -->
+            <!-- <div  >
+              <h2 *ngIf= 'this.noFlight'>Sorry no flights available for this route. <i class="small material-icons" style="color: rgb(58, 5, 5);;">error</i></h2>
+            </div> -->
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>  
+</div>
+<!-- ------------------------------------------------------------------------------------------------------------------------------------------------------------------------ -->
+<!-- FAQS EXPANSION PANEL --> 
+<div class="row ">
+  <div class="col s12">
+    <div class="card faqs"> <br><br>
+      <h1>Flight Booking FAQs</h1> <br>
+      <mat-accordion>
+        <mat-expansion-panel hideToggle>
+          <mat-expansion-panel-header>
+            <mat-panel-title>
+              What are the advantages of online flight booking?
+            </mat-panel-title>            
+          </mat-expansion-panel-header>
+          <p>Through online air ticket booking you can easily compare prices of multiple airlines to get your air tickets at lowest rates. Also, it is easy to do online flight booking as multiple payment options are available on websites like Fly High</p>
+        </mat-expansion-panel>   
+      </mat-accordion> <br>
+
+      <mat-accordion>
+        <mat-expansion-panel hideToggle>
+          <mat-expansion-panel-header>
+            <mat-panel-title>
+              When should I book to get best flight ticket prices?
+            </mat-panel-title>
+          </mat-expansion-panel-header>
+          <p>For best flight ticket prices and flight ticket offers, it is recommended to book at least 3 to 4 weeks in advance for domestic air tickets. For international flight ticket it is recommended to book at least 7 to 8 weeks in advance, so that you can get the best flight ticket prices.</p>
+        </mat-expansion-panel>   
+      </mat-accordion> <br>
+
+      <mat-accordion>
+        <mat-expansion-panel hideToggle>
+          <mat-expansion-panel-header>
+            <mat-panel-title>
+              Why should I make a flight booking from Fly High?
+            </mat-panel-title>
+          </mat-expansion-panel-header>
+          <p>Along with an easy flight booking process, Fly High offers various discounts, instant EMI options and credit/ debit card related offers on flight booking. By availing such benefits, you can book air tickets at reasonable prices.</p>
+        </mat-expansion-panel>   
+      </mat-accordion> <br>
+
+      <mat-accordion>
+        <mat-expansion-panel hideToggle>
+          <mat-expansion-panel-header>            
+            <mat-panel-title>
+              How can I book flight tickets online? 
+            </mat-panel-title>            
+          </mat-expansion-panel-header>
+          <p>With the help of Goibibo, you can easily book both domestic flight tickets and international air tickets in simple steps within a few seconds.</p>
+        </mat-expansion-panel>   
+      </mat-accordion> <br><br>
+    </div>
+  </div>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+<!-- -------------------------------------------------------------------------------------------------------------------------- -->
+<!-- <div class="row">
+    <div class="col s12">
+      <div class="card">
+        <div class="card-content black-text">
+          <div class="row">
+            <div class="col s5">
+              <form #flightForm="ngForm" (ngSubmit)="onSubmit(flightForm.value.source,flightForm.value.destination)">
+                <input type="hidden" name="_id" #_id="ngModel" [(ngModel)]="searchService.searchedFlight._id"> 
+                
+                 <div class="row">
+                  <div class="input-field col s12">
+                    <input type="text"  name="source" #source="ngModel" #source  [(ngModel)]="searchService.searchedFlight.source" placeholder="Enter source location">
+                    <label>Source :
+                    <label class="red-text">*</label>
+                  </label>
+                  </div>
+                </div> 
+                 <div class="row">
+                  <div class="input-field col s12">
+                  <img src="assets/images/swap-horizontal-mobile.svg" alt="" >
+                  </div>
+                </div> 
+                
+                 <div class="row">
+                  <div class="input-field col s12">
+                    <input type="text"  name="destination" #destination="ngModel"  [(ngModel)]="searchService.searchedFlight.destination" placeholder="Enter destination location">
+                    <label>Destination :
+                    <label class="red-text">*</label>
+                  </label>  
+                  </div>
+                </div> 
+                
+                 <div class="row">
+                  <div class="input-field col s12">
+                     <button type="submit" class="btn btn-danger btn-lg btn-block" >SEARCH</button>
+                    
+                  </div>
+                </div>
+              </form>
+            </div>
+           
+            <div class="col s12">
+              <strong style=" text-transform: uppercase;">Go on a vacation to these amazing places. Book at reasonable rate</strong>
+
+
+                <table class="responsive-table highlight">
+                    <thead>
+                      <tr>
+                        <th>Flight code</th>
+                        <th>Airline</th>
+                        <th>Source</th>
+                        <th>Destination</th>
+                        <th>Fare</th>
+                        <th></th>
+                      </tr>
+                    </thead>
+                    <tr *ngFor="let fly of searchService.requiredFlights">
+                      <td>{{fly.flightCode}}</td>
+                      <td>{{fly.airline}}</td>
+                      <td>{{fly.source}}</td>
+                      <td>{{fly.destination}}</td>
+                      <td>{{fly.fare | currency:'INR':'symbol'}}</td>
+                      <td>
+                        <button type="button" class="btn book btn-lg btn-block" (click)="bookFlight(fly)" >BOOK</button>
+                          
+                        </td>
+                    </tr>
+                  </table>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>  
+  </div>  -->
+
+
+
