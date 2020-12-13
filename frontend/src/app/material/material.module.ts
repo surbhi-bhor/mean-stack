@@ -3,13 +3,12 @@ import { NgModule } from '@angular/core';
 import {MatDialogModule} from '@angular/material/dialog';
 import {MatStepperModule} from '@angular/material/stepper';
 import {MatExpansionModule} from '@angular/material/expansion';
-import {MatSidenavModule} from '@angular/material/sidenav';
 import {MatTabsModule} from '@angular/material/tabs';
-import {MatPaginatorModule} from '@angular/material/paginator';
+import {MatDatepickerModule} from '@angular/material/datepicker';
 //-----------------------------------------------------------
 
 const MaterialComponents = [
-  MatDialogModule, MatStepperModule, MatExpansionModule, MatTabsModule, MatPaginatorModule
+  MatDialogModule, MatStepperModule, MatExpansionModule, MatTabsModule,MatDatepickerModule
 ]
 //-----------------------------------------------------------
 

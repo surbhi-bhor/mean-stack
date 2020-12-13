@@ -1,5 +1,28 @@
+<!-- WELCOME SECTION -->
+<div>
+  <h1>
+    <span>welcome to</span>
+    <div class="message">
+      <div class="word1">Fly High</div>
+    </div>
+  </h1>
+  <div class="div-center gallery">
+    <div id="carousel">
+    <figure><img class="img" src="/assets/images/c1.jpg" alt=""></figure>
+    <figure><img class="img" src="/assets/images/offer.png" alt=""></figure>
+    <figure><img class="img" src="/assets/images/c.jpg" alt=""></figure>
+    <figure><img class="img" src="/assets/images/offer1.jpg" alt=""></figure>
+    <figure><img class="img" src="/assets/images/c2.jpg" alt=""></figure>
+    <figure><img class="img" src="/assets/images/offer2.jpg" alt=""></figure>
+    <figure><img class="img" src="/assets/images/c3.jpg" alt=""></figure>
+    <figure><img class="img" src="/assets/images/offer3.jpg" alt=""></figure>
+    <figure><img class="img" src="/assets/images/a.jpg" alt=""></figure>
+    </div>
+  </div>
+</div>  
+<!-- ------------------------------------------------------------------------------------------------------------------------------------------------------------------------ -->
 <!-- SEARCH BOX -->
-<div class="row ">
+<div class="row box ">
   <div class="col s12">
     <div class="card ">
       <div class="card-content black-text">
@@ -36,8 +59,9 @@
               <i class="material-icons">event_available</i> 
               <div class="input-field col s12">
                 <label>Departure : </label>
-                <input type="text" class="datepicker" >
-                <!-- <input type="text" class="datepicker">                -->
+                <input name="date" type="text" onfocus="(this.type='date')" onblur="if(!this.value)this.type='text'">           
+                <!-- <input type="date" > -->
+                 <!-- <input type="text" class="datepicker">                 -->
               </div>
             </div>
             <!-- --------------------------------------------------------------------------------------------------------------------------------------- -->   
@@ -49,53 +73,6 @@
             </form>
           </div>
         </div>
-      </div>
-    </div>
-  </div>
-</div>
-<!-- ------------------------------------------------------------------------------------------------------------------------------------------------------------------- -->
-<!--  CARD CONTAINERS -->
-<div class="row">  
-  <div class="col s6">
-    <div class="card">
-      <div class="card-image">
-        <img src="assets/images/kerala.jpg">
-        <span class="card-title">Kerala</span>
-      </div>
-      <div class="card-content places">
-          <p>Kerala has one of the best: “God's Own Country,” they call it, an assertion of divine provenance that's loudly proclaimed on countless signposts and bumper stickers across the state.</p>
-      </div>
-      <div class="card-action">
-        <a style="color: rgb(77, 16, 16);" href="https://www.ekeralatourism.net/blog/places-to-visit-in-kerala/" target="blank">Places to visit in Kerala</a>
-      </div>
-    </div>
-  </div>
-  <div class="col s6">
-    <div class="card ">
-      <div class="card-image">
-        <img src="assets/images/hp.jpg">
-        <span class="card-title">Himachal Pradesh</span>
-      </div>
-      <div class="card-content places">
-          <p>Himachal Pradesh lies in the foothills of the Himalayan mountain range, and you can see the snow-capped mountains amidst the lush greenery.</p>
-      </div>
-      <div class="card-action">
-        <a style="color: rgb(77, 16, 16);" href="https://blog.thomascook.in/places-to-visit-in-himachal-pradesh/" target="blank">Places to visit in Himachal Pradesh</a>
-      </div>
-    </div>
-  </div>
-  
-  <div class="col s6">
-    <div class="card">
-      <div class="card-image">
-        <img src="assets/images/goa.jpg">
-        <span class="card-title">Goa</span>
-      </div>
-      <div class="card-content places">
-        <p>Goa, also known as the 'Pearl of the Orient', is located on the western coast of India in the coastal belt known as Konkan. By day its sun, sea and surf and by night its fun, fish and feni.</p>
-      </div>
-      <div class="card-action">
-        <a style="color: rgb(77, 16, 16);" href="https://www.thrillophilia.com/10-best-places-to-visit-in-goa" target="blank">Places to visit in Goa</a>
       </div>
     </div>
   </div>
@@ -145,12 +122,60 @@
     </div>
   </div>  
 </div>
+<!-- ------------------------------------------------------------------------------------------------------------------------------------------------------------------- -->
+<!--  CARD CONTAINERS -->
+<div class="row">  
+  <div class="col s6">
+    <div class="card">
+      <div class="card-image">
+        <img src="assets/images/kerala.jpg">
+        <span class="card-title">Kerala</span>
+      </div>
+      <div class="card-content places">
+          <p>Kerala has one of the best: “God's Own Country,” they call it, an assertion of divine provenance that's loudly proclaimed on countless signposts and bumper stickers across the state.</p>
+      </div>
+      <div class="card-action">
+        <a style="color: rgb(77, 16, 16);" href="https://www.ekeralatourism.net/blog/places-to-visit-in-kerala/" target="blank">Places to visit in Kerala</a>
+      </div>
+    </div>
+  </div>
+  <div class="col s6">
+    <div class="card ">
+      <div class="card-image">
+        <img src="assets/images/hp.jpg">
+        <span class="card-title">Himachal Pradesh</span>
+      </div>
+      <div class="card-content places">
+          <p>Himachal Pradesh lies in the foothills of the Himalayan mountain range, and you can see the snow-capped mountains amidst the lush greenery.</p>
+      </div>
+      <div class="card-action">
+        <a style="color: rgb(77, 16, 16);" href="https://blog.thomascook.in/places-to-visit-in-himachal-pradesh/" target="blank">Places to visit in Himachal Pradesh</a>
+      </div>
+    </div>
+  </div>
+  
+  <div class="col s6">
+    <div class="card">
+      <div class="card-image">
+        <img src="assets/images/goa.jpg">
+        <span class="card-title">Goa</span>
+      </div>
+      <div class="card-content places">
+        <p>Goa, also known as the 'Pearl of the Orient', is located on the western coast of India in the coastal belt known as Konkan. By day its sun, sea and surf and by night its fun, fish and feni.</p>
+      </div>
+      <div class="card-action">
+        <a style="color: rgb(77, 16, 16);" href="https://www.thrillophilia.com/10-best-places-to-visit-in-goa" target="blank">Places to visit in Goa</a>
+      </div>
+    </div>
+  </div>
+</div>
+
 <!-- ------------------------------------------------------------------------------------------------------------------------------------------------------------------------ -->
 <!-- FAQS EXPANSION PANEL --> 
 <div class="row ">
   <div class="col s12">
     <div class="card faqs"> <br><br>
-      <h1>Flight Booking FAQs</h1> <br>
+      <h2>Flight Booking FAQs</h2> <br>
       <mat-accordion>
         <mat-expansion-panel hideToggle>
           <mat-expansion-panel-header>

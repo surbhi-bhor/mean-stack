@@ -5,22 +5,44 @@ const axios = require("axios");
 const bodyParser = require("body-parser");
 app.use(bodyParser.json());
 
+//load swagger
+const swaggerJsDoc = require("swagger-jsdoc");
+const swaggerUi = require("swagger-ui-express");
+
 //load cors
 const cors = require('cors')
 app.use(cors({origin: 'http://localhost:4200'}))
-
+// ---------------------------------------------------------------------------------------------------------------------------------------------
 //load mongoose
 const mongoose = require("mongoose");
-
-
-
 //connect to database
 mongoose.connect("mongodb+srv://surbhi:12345@flight.paxk2.mongodb.net/flightBooking?retryWrites=true&w=majority",{useNewUrlParser: true, useUnifiedTopology:true})
 .then(()=> console.log("Connected to database- bookings"))
 .catch((err)=> console.log(err));
-
+//load model
  require("./Booking");
  const Booking = mongoose.model("Booking")
+// ---------------------------------------------------------------------------------------------------------------------------------------------
+//                        SWAGGER DOCUMENTATION
+ // Extended: https://swagger.io/specification/#infoObject
+const swaggerOptions = {
+  swaggerDefinition: {
+    info: {
+      version: "1.0.0",
+      title: "Bookings API",
+      description: "Bookings API Information",
+      contact: {
+        name: "Surbhi"
+      },
+      servers: ["http://localhost:9999"]
+    }
+  },
+  // ['.routes/*.js']
+  apis: ["bookings.js"]
+};
+
+const swaggerDocs = swaggerJsDoc(swaggerOptions);
+app.use("/api-booking", swaggerUi.serve, swaggerUi.setup(swaggerDocs));
 
 // ---------------------------------------------------------------------------------------------------------------------------------------------
 
@@ -85,7 +107,19 @@ app.post("/booking/:flightCode/:UserID", (req, res)=>{
 
 // ---------------------------------------------------------------------------------------------------------------------------------------------
 
-// 2] retrieve all bookings
+// 2] retrieve all bookings in the admin
+/**
+ * @swagger
+ * /bookings:
+ *  get:
+ *    tags:
+ *       - Booking
+ *    description: Used to get all bookings in database
+ *    responses:
+ *      '200':
+ *        description: Listed all the bookings available in  Db
+ */
+
 app.get("/bookings", (req,res)=> {
     Booking.find().then((bookings)=>{
         res.json(bookings)
@@ -101,6 +135,27 @@ app.get("/bookings", (req,res)=> {
 // ---------------------------------------------------------------------------------------------------------------------------------------------
 
 // 3] retrieve booking made by the user
+/**
+ * @swagger
+ * /booked/allbookings/{UserID}: 
+ *  get:
+ *    tags:
+ *       - Booking
+ *    summary: Fetch a booking m
+ *    description: Used to fetch a single booking by user
+ *    responses:
+ *      '200':
+ *        description: Successfully fetched booking
+ *      '500':
+ *        description: Server error
+ *  parameters:
+ *       - in: path
+ *         name: UserID
+ *         required: true
+ *         schema:
+ *           type: String
+ *         description: Booking made by particular user
+ */
 app.get('/booked/allbookings/:UserID', (req, res) => {
     var objectId = mongoose.Types.ObjectId(req.params.UserID);
     var myArr = [];
@@ -125,16 +180,29 @@ app.get('/booked/allbookings/:UserID', (req, res) => {
   });
 
 // ---------------------------------------------------------------------------------------------------------------------------------------------
-// get booking by id [for summary]
-app.get('/booking/:id',(req,res)=>{
-  Booking.findById(req.params.id).then((booking)=>{
-    res.json(booking);
-  })
-});
 
-// ---------------------------------------------------------------------------------------------------------------------------------------------
-
-//Cancel Booking
+// 4] Cancel Booking
+/**
+ * @swagger
+ * /booking/cancel/{BookingID}:
+ *  delete:
+ *    tags:
+ *       - Booking
+ *    summary: Delete a Booking.
+ *    description: Used to delete a booking
+ *    responses:
+ *      '200':
+ *        description: Successfully deleted booking
+ *      '500':
+ *        description: Server error
+ *  parameters:
+ *       - in: path
+ *         name: BookingID
+ *         required: true
+ *         schema:
+ *           type: String
+ *         description: The Booking ID
+ */
 app.delete("/booking/cancel/:BookingID",(req,res) => {
     Booking.deleteOne({BookingID: req.params.BookingID}).then((response) => {
         //console.log(response);
@@ -166,6 +234,13 @@ app.listen(9999, () => {
 
 
 //  [METHODS USING ID]
+// ---------------------------------------------------------------------------------------------------------------------------------------------
+// get booking by id [for summary]
+app.get('/booking/:id',(req,res)=>{
+  Booking.findById(req.params.id).then((booking)=>{
+    res.json(booking);
+  })
+});
 
 // ---------------------------------------------------------------------------------------------------------------------------------------------
 // POST METHOD USING ID

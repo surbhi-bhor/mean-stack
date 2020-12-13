@@ -16,8 +16,6 @@ const bodyParser=require('body-parser');
 app.use(bodyParser.json());
 app.use(cookieParser());
 app.use(cors())
-
-
 //load mongoose
 const mongoose=require('mongoose');
 
@@ -71,7 +69,7 @@ const createToken = (id) => {
     });
 }
 //---------------------------------------------------------------------------------------------------------------------------------------------
-// POST METHOD FOR USER SIGNUP ALONG WITH JWT
+// 1] POST METHOD FOR USER SIGNUP ALONG WITH JWT
 app.post("/user/signup", async(req,res) => {
     var newUserObj = {
         
@@ -97,7 +95,7 @@ app.post("/user/signup", async(req,res) => {
 });
 
 //---------------------------------------------------------------------------------------------------------------------------------------------
-// POST METHOD FOR USER LOGIN ALONG WITH JWT
+// 2] POST METHOD FOR USER LOGIN ALONG WITH JWT
 
 app.post('/user/login',async(req,res)=>{
     const {email,password}=req.body;
@@ -120,7 +118,7 @@ app.post('/user/login',async(req,res)=>{
 
 //---------------------------------------------------------------------------------------------------------------------------------------------
 
-// 2] retrieve all users
+// 3] retrieve all users
 app.get("/users", (req,res)=> {
     User.find().then((users)=>{
         res.json(users)
@@ -134,7 +132,7 @@ app.get("/users", (req,res)=> {
 
 //---------------------------------------------------------------------------------------------------------------------------------------------
 
-// 3] retrieve user by the name
+// 4] retrieve user by the name
 
 app.get("/username/:name",(req,res) => {
     User.find({name: req.params.name}).then((user)=> {
@@ -151,8 +149,7 @@ app.get("/username/:name",(req,res) => {
 } )  
 //---------------------------------------------------------------------------------------------------------------------------------------------
 
-// 4] Retrieve user by its id
-
+// 5] Retrieve user by its id
 app.get("/user/:id",(req,res) => {
     User.findById(req.params.id).then((user)=> {
         if(user){
@@ -166,19 +163,7 @@ app.get("/user/:id",(req,res) => {
         }
     })
 } )
-//---------------------------------------------------------------------------------------------------------------------------------------------
-
-// 5] removing users
-app.delete('/user/:name', (req, res) => {
-    User.deleteOne({name: req.params.name}).then((response) => {
-      res.send("User removed successfully");
-      console.log(response);
-    }).catch(err => {
-      if(err){
-        throw err;
-      }
-    })
-  });
+// 
 //---------------------------------------------------------------------------------------------------------------------------------------------
 
 // 6] Updating users
@@ -214,6 +199,7 @@ app.listen(5555, () => {
 
 
 // 1] create functionality
+
 // app.post("/user", (req,res)=> {
 //     var newUser = {
 //         name: req.body.name,
@@ -236,3 +222,17 @@ app.listen(5555, () => {
 // })
 // res.send("New User added successfully")
 // }) 
+
+//---------------------------------------------------------------------------------------------------------------------------------------------
+
+// // 5] removing users
+// app.delete('/user/:name', (req, res) => {
+//     User.deleteOne({name: req.params.name}).then((response) => {
+//       res.send("User removed successfully");
+//       console.log(response);
+//     }).catch(err => {
+//       if(err){
+//         throw err;
+//       }
+//     })
+//   });

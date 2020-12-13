@@ -1,5 +1,165 @@
+/* welcome text animation */
+h1 {
+    margin-top: 10px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: white;
+    font-family: tahoma;
+    font-size: 3rem;
+    font-weight: 100;
+    line-height: 1.5;
+    text-transform: uppercase;
+    white-space: nowrap;
+    overflow: hidden;
+    position: relative;
+    width: 800px;
+  }
+  
+  h1 span {
+    font-size: 40px;
+    margin-left: 40px;
+  }
+  
+  .message {
+    background-color: white;
+    color: rgb(58, 5, 5);
+    display: block;
+    font-weight: 900;
+    overflow: hidden;
+    position: absolute;
+    padding-left: 0.9rem;
+    top: 0.2rem;
+    left: 570px;
+    animation: openclose 4s ease-in-out infinite;
+  }
+  
+  @keyframes openclose {
+    0% {
+      top: 0.2rem;
+      width: 0;
+    }
+    5% {
+      width: 0;
+    }
+    15% {
+      width: 230px;
+    }
+    30% {
+      top: 0.2rem;
+      width: 230px;
+    }
+    33% {
+      top: 0.2rem;
+      width: 0;
+    }
+    35% {
+      top: 0.2rem;
+      width: 0;
+    }
+    38% {
+      top: -4.5rem;
+      
+    }
+    48% {
+      top: -4.5rem;
+      width: 190px;
+    }
+    62% {
+      top: -4.5rem;
+      width: 190px;
+    }
+    66% {
+      top: -4.5rem;
+      width: 0;
+      text-indent: 0;
+    }
+    71% {
+      top: -9rem;
+      width: 0;
+      text-indent: 5px;
+    }
+    86% {
+      top: -9rem;
+      width: 285px;
+    }
+    95% {
+      top: -9rem;
+      width: 285px;
+    }
+    98% {
+      top: -9rem;
+      width: 0;
+      text-indent: 5px;
+    }
+    100% {
+      top: 0;
+      width: 0;
+      text-indent: 0;
+    }
+  }
 
+/* carousel animation */
+.gallery{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 4% auto;
+    width: 300px;
+    height: 210px;
+    position: relative;
+    perspective: 1000px;
+    }
+    #carousel{
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    transform-style: preserve-3d;
+    animation: rotation 35s infinite linear;
+    }
+    #carousel:hover{
+    animation-play-state: paused;
+    }
+    #carousel figure{
+    display: block;
+    position: absolute;
+    width: 68%;
+    height: 60%;
+    left: 10px;
+    top: 10px;
+    background: black;
+    overflow: hidden;
+    border: solid 5px black;
+    }
+    #carousel figure:nth-child(1) {transform: rotateY(0deg) translateZ(288px);}
+    #carousel figure:nth-child(2) { transform: rotateY(40deg) translateZ(288px);}
+    #carousel figure:nth-child(3) { transform: rotateY(80deg) translateZ(288px);}
+    #carousel figure:nth-child(4) { transform: rotateY(120deg) translateZ(288px);}
+    #carousel figure:nth-child(5) { transform: rotateY(160deg) translateZ(288px);}
+    #carousel figure:nth-child(6) { transform: rotateY(200deg) translateZ(288px);}
+    #carousel figure:nth-child(7) { transform: rotateY(240deg) translateZ(288px);}
+    #carousel figure:nth-child(8) { transform: rotateY(280deg) translateZ(288px);}
+    #carousel figure:nth-child(9) { transform: rotateY(320deg) translateZ(288px);}
+    #carousel figure:nth-child(10){ transform: rotateY(360deg)translateZ(288px);}
+    #carousel .img{
+    cursor: pointer;
+    transition: all .5s ease;
+    width:100%;
+    }
+    #carousel .img:hover{
+    transform: scale(1.2,1.2);
+    }
+    
+    @keyframes rotation{
+    from{
+    transform: rotateY(0deg);
+    }
+    to{
+    transform: rotateY(360deg);
+    }
+    }
 
+/* ------------------------------------------------------------------------------------------------------------------------------------ */
 form div.input-field input{
     padding-left: 15px !important;
     color: white;
@@ -38,6 +198,9 @@ div.card{
     font-size: small;
     background-color: rgba(139, 31, 47, 0.9);    
 } 
+.box{
+    margin-top: -50px;
+}
 .search{
     background: rgba(139, 31, 47, 0.9);
     border-radius: 10px;
@@ -76,7 +239,7 @@ div.card.flights{
     background-image: linear-gradient(rgba(114, 19, 19, 0.5), rgba(146, 26, 26, 0.5)) ,url(src/assets/images/airport.jpg);
 
 }
-strong, h2{
+strong{
     display: flex;
     justify-content: center;
     align-items: center;
@@ -94,8 +257,9 @@ div.card.faqs{
     background-image: linear-gradient(rgba(150,32,54, 1), rgba(72,15,24, 1));
     
 }
-h1{
+h2{
     color: white;
+    font-size: x-large;
 }
 mat-accordion{    
     width: 95%;
