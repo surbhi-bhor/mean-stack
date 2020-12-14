@@ -3,12 +3,17 @@ import { Router } from '@angular/router';
 import { AuthService } from '../auth.service';
 import { BookService } from '../bookShared/book.service';
 
+
+
+
 @Component({
   selector: 'app-login',
   templateUrl: './login.component.html',
   styleUrls: ['./login.component.css']
 })
 export class LoginComponent implements OnInit {
+ 
+
   isLoginError=false;
   errorMsg1= '';
   errorMsg2= '';
@@ -26,8 +31,11 @@ export class LoginComponent implements OnInit {
               private bookingService: BookService) { }
 
   ngOnInit(): void {
-    
   }
+
+  
+
+  
   
   loginUser() {
     

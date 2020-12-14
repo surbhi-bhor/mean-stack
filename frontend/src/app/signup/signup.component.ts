@@ -39,9 +39,9 @@ export class SignupComponent implements OnInit {
         console.log(this.isSignupError);
         this.errorMsg1=err.error.email;
         this.ngOnInit();              
-       }
-       
-    )      
+       }       
+    )   
+ 
   }
 
 }

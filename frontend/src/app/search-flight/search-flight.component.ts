@@ -17,7 +17,7 @@ declare var M: any;
   styleUrls: ['./search-flight.component.css']
 })
 export class SearchFlightComponent implements OnInit {
-  noFlight= false;
+  //noFlight= false;
   isSearchError = false;  
   dest: any;
   src: any;  

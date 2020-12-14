@@ -13,10 +13,7 @@ label {
     background-image: linear-gradient(rgb(150,32,54), rgb(72,15,24));
 }
 
-.text-danger{
-    background-color: white;
-    font-size: small;
-}
+
 input{
     color: white;
 }

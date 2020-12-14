@@ -21,6 +21,9 @@ import { ViewBookingComponent } from './view-booking/view-booking.component';
 import { TicketComponent } from './ticket/ticket.component';
 //-----------------------------------------------------------
 
+
+ 
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -41,10 +44,12 @@ import { TicketComponent } from './ticket/ticket.component';
     MaterialModule,
     FormsModule,
     HttpClientModule,
-    NgbModule 
+    NgbModule ,
+
    
   ],
-  providers: [AuthService, AuthGuard],
+  providers: [AuthService, AuthGuard,
+     ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

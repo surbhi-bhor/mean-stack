@@ -22,6 +22,7 @@
     "@angular/platform-browser-dynamic": "~11.0.1",
     "@angular/router": "~11.0.1",
     "@ng-bootstrap/ng-bootstrap": "^8.0.0",
+    "angularx-social-login": "^2.0.1",
     "materialize-social": "^1.0.3",
     "print-js": "^1.5.0",
     "rxjs": "~6.6.0",
