@@ -262,7 +262,7 @@ app.listen(7777, () => {
     console.log("Up and running this is our admin service");
 })
 
-
+module.exports = app;
 
 
 

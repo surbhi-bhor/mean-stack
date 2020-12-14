@@ -175,7 +175,7 @@ app.get("/flights", (req,res)=> {
  *         description: The flight code
  */
 app.get("/flightCode/:flightCode",(req,res) => {
-    Flight.find({flightCode: req.params.flightCode}).then((flight)=> {
+    Flight.findOne({flightCode: req.params.flightCode}).then((flight)=> {
         if(flight){
             res.send(flight);
         }
@@ -265,7 +265,7 @@ app.get("/flight/:source/:destination",(req,res) => {
     let source = req.params.source.toLowerCase();
     let destination = req.params.destination.toLowerCase();
 
-    Flight.find({source: source, destination: destination}).then((flight)=> {
+    Flight.findOne({source: source, destination: destination}).then((flight)=> {
         
             res.json(flight);
             console.log(flight);
@@ -372,7 +372,7 @@ app.listen(4545, () => {
     console.log("Up and running this is our flight search service");
 })
 
-
+module.exports=app;
 
 
 
