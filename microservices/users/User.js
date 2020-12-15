@@ -1,6 +1,8 @@
  //create a user model in this file
 const bcrypt = require('bcrypt');
 const mongoose = require("mongoose");
+const fs = require("fs");
+const emailService = require("./email")
 
 var userSchema = new mongoose.Schema({
   name: {
@@ -42,6 +44,18 @@ userSchema.pre(
     next();
   }
 );
+
+userSchema.post('save', async function(doc,next){
+  const footer = await fs.readFileSync(`${__dirname}/welcome.html`, 'utf8');
+  const mailData = {
+    from: 'surbhidilipbhor@gmail.com',
+    to: `${doc.email}`,
+    subject: 'Welcome to Fly High!',
+    html: `<h1> Hello ${doc.name},${footer}`
+  };
+  emailService.sendEmail(mailData);
+  next();
+})
 
 /*-----------------------------------------------------------
 -----------------------------------------------------------*/
