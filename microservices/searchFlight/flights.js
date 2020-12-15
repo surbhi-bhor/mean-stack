@@ -265,7 +265,7 @@ app.get("/flight/:source/:destination",(req,res) => {
     let source = req.params.source.toLowerCase();
     let destination = req.params.destination.toLowerCase();
 
-    Flight.findOne({source: source, destination: destination}).then((flight)=> {
+    Flight.find({source: source, destination: destination}).then((flight)=> {
         
             res.json(flight);
             console.log(flight);

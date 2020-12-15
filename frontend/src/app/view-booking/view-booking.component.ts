@@ -1,8 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-//import { BookService } from '../bookShared/book.service';
 import { ViewBookingService } from '../viewShared/view-booking.service';
-
-
 
 declare var M: any;
 
@@ -48,10 +45,10 @@ Cancellation charges of 20% will be applied`) == true) {
         M.toast({ html: 'Cancelled successfully!!', classes: 'red darken-1 rounded' });
       });
     }
-
-  }
+  }    
 
   
-    
-
+  
 }
+
+

@@ -26,9 +26,7 @@ var userSchema = new mongoose.Schema({
     required: true
   },
   userType: {
-    type: String,
-    //enum : ['user','admin']
-    
+    type: String    
   }
   
 });

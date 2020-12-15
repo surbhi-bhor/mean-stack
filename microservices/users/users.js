@@ -72,8 +72,7 @@ const createToken = (id) => {
 //---------------------------------------------------------------------------------------------------------------------------------------------
 // 1] POST METHOD FOR USER SIGNUP ALONG WITH JWT
 app.post("/user/signup", async(req,res) => {
-    var newUserObj = {
-        
+    var newUserObj = {        
         name: req.body.name,
         age: req.body.age,
         gender: req.body.gender,
@@ -189,6 +188,8 @@ app.put('/user/:name', (req,res) => {
 app.listen(5555, () => {
     console.log("Up and running this is our user service");
 })
+
+
 
 
   

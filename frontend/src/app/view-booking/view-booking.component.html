@@ -28,21 +28,16 @@
                                 <td>NAME: {{fly.user.name}}</td>
                                 <td>AGE {{fly.user.age}}</td>         
                                 <td><button class="btn book waves-effect waves-light"  type="button" (click)='this.viewService.checkIn(fly)' >Check in</button></td>           
-                                <td><button class="btn book waves-effect waves-light"  type="button" (click)="onDelete(fly.BookingID)">Cancel</button></td>                    
+                                <td><button class="btn book waves-effect waves-light"  type="button" (click)="onDelete(fly.BookingID)">Cancel</button></td> 
+                                                                                                            
                             </tr>
-                        </table>       
+                        </table>                               
                     </div>
             </div>    
    </div> <br><br><br>
 </div>
 
 
-<!-- <table>
-    <tr  *ngFor="let obj of this.viewService.registeredUser.Object">
-        <td>{{ obj.name}}</td>
-
-    </tr>
-</table> -->
 
 
   

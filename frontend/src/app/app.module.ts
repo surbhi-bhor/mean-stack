@@ -44,12 +44,9 @@ import { TicketComponent } from './ticket/ticket.component';
     MaterialModule,
     FormsModule,
     HttpClientModule,
-    NgbModule ,
-
-   
+    NgbModule    
   ],
-  providers: [AuthService, AuthGuard,
-     ],
+  providers: [AuthService, AuthGuard ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

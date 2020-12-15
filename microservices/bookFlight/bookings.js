@@ -218,7 +218,7 @@ app.listen(9999, () => {
     console.log("Up and running this is our Bookings service");
 })
 
-
+module.exports=app;
 
 
 
