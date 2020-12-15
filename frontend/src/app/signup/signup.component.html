@@ -4,7 +4,8 @@
         <span class="anchor" id="formLogin"></span>  
         <div class="card rounded-0">
           <div class="card-header" >
-            <h3 class="mb-0">Register</h3>
+            <div class="avatar"><i class="material-icons">&#xE7FD;</i></div>
+            <!-- <h3 class="mb-0">Register</h3> -->
           </div>
          <!-- --------------------------------------------------------------------------------------------------------------------------------------- -->
           <div class="card-body">
@@ -49,7 +50,7 @@
                 <small class="danger" [class.d-none]="password.valid || password.untouched">Password is required</small>
               </div>
          <!-- --------------------------------------------------------------------------------------------------------------------------------------- -->
-              <button type="button" [disabled]="userForm.form.invalid" (click)="registerUser()" class="btn float-right">Register</button>
+              <button type="button" [disabled]="userForm.form.invalid" (click)="registerUser()" class="btn btn-block float-right">Register</button>
             </form>
           </div>
         </div>

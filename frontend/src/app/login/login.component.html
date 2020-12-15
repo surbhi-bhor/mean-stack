@@ -5,7 +5,8 @@
   
          <div class="card rounded-0">
           <div class="card-header" >
-            <h3 class="mb-0">Login</h3>
+            <div class="avatar"><i class="material-icons">&#xE7FD;</i></div>
+            <!-- <h3 class="mb-0">Login</h3> -->
           </div>          
 <!-- --------------------------------------------------------------------------------------------------------------------------------------- -->
         <div class="card-body" >
@@ -23,10 +24,10 @@
                 <small class="danger" [class.d-none]="password.valid || password.untouched">Password is required</small>
                 <small class="danger" *ngIf = "isLoginError" >{{errorMsg2}} </small>
               </div>
-              <button type="button" [disabled]="userForm.form.invalid" (click)="loginUser()"  class="btn  float-right">Login</button>
+              <button type="button" [disabled]="userForm.form.invalid" (click)="loginUser()"  class="btn btn-block ">Login</button>
             </form>
           </div>
         </div>       
       </div>  
     </div>
-  </div>  <br><br>
+  </div>  <br><br> <br> 
