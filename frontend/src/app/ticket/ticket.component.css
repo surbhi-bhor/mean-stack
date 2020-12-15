@@ -504,7 +504,7 @@ body{
 
   .card{
       position: relative;
-      margin: 50px;
+      margin: 40px;
       padding: 20px 0 20px 0;      
       background-image:  url(/assets/images/topography.svg), linear-gradient(#a54d61, #8b213a);
       
@@ -532,3 +532,8 @@ body{
     margin-top: -23px;
     position: absolute;       
 } 
+
+.covid{
+  margin: -25px;
+  margin-bottom: 15px;
+}
