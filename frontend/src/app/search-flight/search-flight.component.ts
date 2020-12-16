@@ -10,6 +10,7 @@ import { SearchFlight } from '../searchShared/search-flight.model';
 import { SearchService } from '../searchShared/search.service';
 import {MatDialog} from '@angular/material/dialog';
 
+
 declare var M: any;
 @Component({
   selector: 'app-search-flight',
@@ -17,7 +18,8 @@ declare var M: any;
   styleUrls: ['./search-flight.component.css']
 })
 export class SearchFlightComponent implements OnInit {
-  //noFlight= false;
+  noFlight= false;
+  options: string[] = ['Mumbai', 'Delhi', 'Goa', 'Chennai', 'Bangalore'];
   isSearchError = false;  
   dest: any;
   src: any;  
@@ -43,14 +45,24 @@ export class SearchFlightComponent implements OnInit {
       this.isSearchError = true;
       M.toast({ html: 'Source and destination cannot be same!!', classes: 'black darken-1 rounded' });
     }
-    this.searchService.getFlightList(source, destination).subscribe((res) => {  
-      console.log(res);                  
-      this.searchService.requiredFlights = res as SearchFlight[];      
-      //  if(res= [] ){
-      //    this.noFlight= true ;    
-      //   M.toast({ html: 'Sorry no Flights available for this route!', classes: 'black darken-1 rounded' });
-      // } 
-    });    
+    else{
+      this.isSearchError = false;
+      this.noFlight= false ; 
+      this.searchService.getFlightList(source, destination).subscribe((res) => {  
+        console.log(res);                  
+        this.searchService.requiredFlights = res as SearchFlight[]; 
+        if(this.searchService.requiredFlights.length <= 0){
+          this.noFlight = true;
+          console.log(this.noFlight);
+          M.toast({ html: 'Sorry No flights found for this route!!', classes: 'black darken-1 rounded' });
+        }      
+      });     
+
+    }
+    // this.searchService.getFlightList(source, destination).subscribe((res) => {  
+    //   console.log(res);                  
+    //   this.searchService.requiredFlights = res as SearchFlight[];       
+    // });    
     }      
   // onSubmit(source: string, destination: string) {
   //   this.searchService.getFlightList(source, destination).subscribe((res) => {

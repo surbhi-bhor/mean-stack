@@ -32,13 +32,27 @@
               <input type="hidden" name="_id" #_id="ngModel" [(ngModel)]="searchService.searchedFlight._id">
               <!-- --------------------------------------------------------------------------------------------------------------------------------------- -->
               <div class="row">
-                <i class="material-icons">add_location</i>                
+                <!-- <i class="material-icons">add_location</i>                
                 <div class="input-field col s12">                  
                   <input type="text" [(ngModel)]= "src" name="source" #source="ngModel" #source  [(ngModel)]="searchService.searchedFlight.source">
                   <label>Source :
                   <label class="red-text">*</label>
                 </label>
-                </div>
+                </div> -->
+                <!-- --------------------------------------------------------------testing autocomplete-->
+                <i class="material-icons">add_location</i>                
+                <div class="input-field col s12">                  
+                  <input type="text" [(ngModel)]= "src" name="source" #source="ngModel" #source  [matAutocomplete]="auto" [(ngModel)]="searchService.searchedFlight.source">
+                  <label>Source :
+                  <label class="red-text">*</label>
+                  </label>
+                  <mat-autocomplete #auto="matAutocomplete">
+                    <mat-option *ngFor="let option of options" [value]="option">
+                      {{option}}
+                    </mat-option>
+                  </mat-autocomplete>
+                
+                </div>                
                 <!-- --------------------------------------------------------------------------------------------------------------------------------------- -->
                 <div class="row">                  
                   <div class="input-field col s12">
@@ -46,12 +60,25 @@
                   </div>
                 </div>
                 <!-- --------------------------------------------------------------------------------------------------------------------------------------- -->
-                <i class="material-icons">add_location</i> 
+                <!-- <i class="material-icons">add_location</i> 
                 <div class="input-field col s12">                   
                   <input type="text" [(ngModel)]= "dest" name="destination" #destination="ngModel"  [(ngModel)]="searchService.searchedFlight.destination">
                   <label>Destination :
                   <label class="red-text">*</label>
                 </label>  
+                </div> -->
+                <!-- -->
+                <i class="material-icons">add_location</i> 
+                <div class="input-field col s12">                   
+                  <input type="text" [(ngModel)]= "dest" name="destination" #destination="ngModel" [matAutocomplete]="auto"  [(ngModel)]="searchService.searchedFlight.destination">
+                  <label>Destination :
+                  <label class="red-text">*</label>
+                  </label> 
+                  <mat-autocomplete #auto="matAutocomplete">
+                    <mat-option *ngFor="let option of options" [value]="option">
+                      {{option}}
+                    </mat-option>
+                  </mat-autocomplete>
                 </div>
              </div>
              <!-- --------------------------------------------------------------------------------------------------------------------------------------- -->
@@ -59,9 +86,7 @@
               <i class="material-icons">event_available</i> 
               <div class="input-field col s12">
                 <label>Departure : </label>
-                <input name="date" type="text" onfocus="(this.type='date')" onblur="if(!this.value)this.type='text'">           
-                <!-- <input type="date" > -->
-                 <!-- <input type="text" class="datepicker">                 -->
+                <input name="date" type="text" onfocus="(this.type='date')" onblur="if(!this.value)this.type='text'">                       
               </div>
             </div>
             <!-- --------------------------------------------------------------------------------------------------------------------------------------- -->   
@@ -86,7 +111,6 @@
         <div class="row">
           <div class="col s12">
             <strong>"Once a year, go some place you've never been before." Book flights here at reasonable rate</strong> <br> <br>         
-
               <table class="responsive-table highlight"  >
                   <thead>
                     <tr>

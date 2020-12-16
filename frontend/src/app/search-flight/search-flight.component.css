@@ -266,7 +266,9 @@ mat-accordion{
     padding-left: 45px;
     position: relative;    
 }
-
+.mat-autocomplete{
+  background-color: black;
+}
 
 
 
