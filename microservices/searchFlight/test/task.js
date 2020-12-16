@@ -18,10 +18,18 @@ describe('Flights API', () => {
                 .end((err, response) => {
                     response.should.have.status(200);
                     response.body.should.be.a('array');
-                    response.body.length.should.be.eq(11);
+                    response.body.length.should.be.eq(16);
                 done();
                 });
         });
+        it("It should NOT GET all the flights", (done) => {
+            chai.request(server)
+                .get("/flight")
+                .end((err, response) => {
+                    response.should.have.status(404);
+                done();
+                });
+            })
     });
 
     /**
@@ -30,7 +38,7 @@ describe('Flights API', () => {
     
     describe("GET /flightCode/:flightCode", () =>{
         it("it should get the flight by flightcode", (done) => {
-            const flightCode = "SC105";
+            const flightCode = "SC101";
             chai.request(server)
                 .get("/flightCode/" + flightCode)
                 .end((err, response) => {
@@ -44,7 +52,7 @@ describe('Flights API', () => {
                      response.body.should.have.property('fare');
                 done();
                 });
-        });
+        });        
     });
 
     /**
@@ -81,7 +89,7 @@ describe('Flights API', () => {
      */
     describe("GET /flight/:id", () =>{
         it("it should get the flight by id", (done) => {
-            const id = "5fc25cbb5e645b3a689afce6";
+            const id = "5fd8b4db5e4e562d9c40adfa";
             chai.request(server)
                 .get("/flight/" + id)
                 .end((err, response) => {
@@ -91,6 +99,15 @@ describe('Flights API', () => {
                 done();
                 });
         });
+        it("It should NOT GET  the flight by id", (done) => {
+            const id = "5fd8b4db5e4e562d9c40adfa";
+            chai.request(server)
+                .get("/flights/" +id)
+                .end((err, response) => {
+                    response.should.have.status(404);
+                done();
+                });
+            })
     });
 
     /**
@@ -105,7 +122,7 @@ describe('Flights API', () => {
                 .end((err, response) => {
                     //console.log(response);
                     // response.should.have.status(200);
-                    response.body.should.be.a('object');
+                    response.body.should.be.a('array');
                 done();
                 });
         });
@@ -116,7 +133,7 @@ describe('Flights API', () => {
      */
     describe("PUT /flight/:id", () =>{
         it("it should put the flight ", (done) => {
-            const id = "5fd6e3e7907dcf45bce4afb8";
+            const id = "5fd8b4db5e4e562d9c40adfa";
             const flight={
                 flightCode: "SC101",
                 airline: "SpiceJet",
