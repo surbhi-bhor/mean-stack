@@ -38,13 +38,11 @@ export class ViewBookingComponent implements OnInit {
   }
 
   onDelete(BookingID: string) {
-    if (confirm(`Are you sure you want to cancel the booking? 
-Cancellation charges of 20% will be applied`) == true) {
       this.viewService.cancelBooking(BookingID).subscribe((res) => {
         this.getUserbyUserId();        
         M.toast({ html: 'Cancelled successfully!!', classes: 'red darken-1 rounded' });
       });
-    }
+  
   }    
 
   
